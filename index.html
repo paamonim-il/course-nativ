@@ -1,0 +1,727 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, "Segoe UI", sans-serif;
+    background: transparent;
+  }
+
+  .course-hero {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 55px 40px;
+    background: linear-gradient(135deg, #124a65, #2c8797);
+    color: white;
+    border-radius: 18px;
+    direction: rtl;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  .course-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .course-header h1 {
+    font-size: 42px;
+    margin: 0 0 12px;
+  }
+
+  .course-header p {
+    font-size: 20px;
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  .course-content {
+    font-size: 18px;
+  }
+
+  .course-content p {
+    margin: 0 0 22px;
+  }
+
+  .course-highlight {
+    background: rgba(255, 255, 255, 0.13);
+    border-right: 5px solid white;
+    border-radius: 10px;
+    padding: 22px 25px;
+    margin: 30px 0;
+    font-size: 20px;
+    line-height: 1.8;
+  }
+
+  .course-date {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+    white-space: nowrap;
+  }
+
+  #attendance-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+
+  #attendance-link:hover {
+    opacity: 0.85;
+  }
+
+  .section-title {
+    font-size: 27px;
+    margin: 40px 0 18px;
+    color: white;
+    text-align: center;
+  }
+
+  .course-dates-wrapper {
+    background: rgba(255, 255, 255, 0.11);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    padding: 22px 28px;
+    margin: 20px 0 45px;
+  }
+
+  .course-dates {
+    margin: 0;
+    padding-right: 28px;
+  }
+
+  .course-dates li {
+    padding: 9px 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .course-dates li:last-child {
+    border-bottom: none;
+  }
+
+  .requirements-section {
+    margin: 45px 0 50px;
+  }
+
+  .requirements-title {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+    margin: 0 0 22px;
+  }
+
+  .requirements-box {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    padding: 18px 28px;
+  }
+
+  .requirement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    font-size: 18px;
+    line-height: 1.7;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .requirement-item:last-child {
+    border-bottom: none;
+  }
+
+  .checkmark {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    margin-top: 2px;
+    background: white;
+    color: #124a65;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 19px;
+    font-weight: bold;
+  }
+
+  .candidate-section {
+    margin: 45px 0 55px;
+  }
+
+  .candidate-box {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    padding: 28px 32px;
+  }
+
+  .candidate-title {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 30px;
+    color: white;
+  }
+
+  .candidate-important {
+    font-size: 20px;
+    padding: 15px 18px;
+    border-right: 5px solid white;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  .candidate-action {
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  .candidate-button {
+    display: inline-block;
+    padding: 15px 34px;
+    background: white;
+    color: #124a65;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 19px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+
+  .candidate-button:hover {
+    background: #f2f2f2;
+    transform: translateY(-2px);
+  }
+
+  .candidate-closing {
+    margin-top: 28px !important;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    text-align: center;
+    font-size: 19px;
+  }
+
+  .faq-section {
+    margin-top: 50px;
+  }
+
+  .faq-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 0 0 8px;
+    color: white;
+  }
+
+  .faq-intro {
+    text-align: center;
+    margin-bottom: 28px;
+    opacity: 0.9;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .faq-question {
+    position: relative;
+    cursor: pointer;
+    padding: 20px 52px 20px 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    list-style: none;
+  }
+
+  .faq-question:hover {
+    opacity: 0.85;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::marker {
+    content: "";
+  }
+
+  .faq-question::before {
+    content: "+";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: white;
+    color: #124a65;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .faq-item[open] .faq-question::before {
+    content: "−";
+  }
+
+  .faq-answer {
+    padding: 0 52px 22px 8px;
+    font-size: 17px;
+    color: white;
+    opacity: 0.95;
+  }
+
+  .faq-answer p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 700px) {
+    .course-hero {
+      padding: 35px 20px;
+      border-radius: 12px;
+    }
+
+    .course-header {
+      margin-bottom: 30px;
+    }
+
+    .course-header h1 {
+      font-size: 32px;
+    }
+
+    .course-header p {
+      font-size: 18px;
+    }
+
+    .course-content {
+      font-size: 17px;
+    }
+
+    .course-highlight {
+      font-size: 18px;
+      padding: 18px;
+    }
+
+    .section-title {
+      font-size: 23px;
+    }
+
+    .course-dates-wrapper {
+      padding: 18px 15px;
+    }
+
+    .course-dates {
+      padding-right: 23px;
+    }
+
+    .requirements-title {
+      font-size: 23px;
+    }
+
+    .requirements-box {
+      padding: 12px 18px;
+    }
+
+    .requirement-item {
+      font-size: 16px;
+      gap: 11px;
+    }
+
+    .checkmark {
+      flex-basis: 27px;
+      width: 27px;
+      height: 27px;
+      line-height: 27px;
+      font-size: 17px;
+    }
+
+    .candidate-box {
+      padding: 22px 18px;
+    }
+
+    .candidate-title {
+      font-size: 25px;
+    }
+
+    .candidate-important {
+      font-size: 18px;
+    }
+
+    .candidate-button {
+      width: 100%;
+      font-size: 17px;
+    }
+
+    .candidate-closing {
+      font-size: 17px;
+    }
+
+    .faq-title {
+      font-size: 26px;
+    }
+
+    .faq-question {
+      font-size: 17px;
+      padding-right: 48px;
+    }
+
+    .faq-answer {
+      font-size: 16px;
+      padding-right: 48px;
+    }
+  }
+</style>
+
+
+<section class="course-hero">
+
+  <div class="course-header">
+    <h1>הכשרת מלווים</h1>
+
+    <p>
+      קורס הכשרת מלווי משפחות של פעמונים
+    </p>
+  </div>
+
+
+  <div class="course-content">
+
+    <p>
+      בעקבות פנייתך להתנדבות בפעמונים, ורצונך להתנדב בליווי מרחוק (ZOOM),
+      שמחים לעדכן, שבחודש אוקטובר 2026 יחל קורס הכשרת מלווי משפחות של פעמונים.
+    </p>
+
+    <p>
+      להלן הפרטים על הקורס וההתנדבות.
+      שימו לב שבסוף המלל ישנו מקבץ של שאלות ותשובות:
+      אנא קראו אותן בקפידה במידה שעולות לכם/ן שאלות.
+    </p>
+
+
+    <div class="course-highlight">
+
+      <strong>
+        הקורס יתקיים בזום,
+        החל מ-
+        <span class="course-date">14.10.26</span>,
+        בשעות: 18:30-21:30,
+        שימו לב שבחלק מהשבועות יתקיימו שני מפגשים באותו שבוע
+      </strong>
+
+      <div style="margin-top: 14px;">
+        *
+        <span id="attendance-link">
+          נדרשת התחייבות להשתתף בכל מפגשי הקורס
+        </span>
+      </div>
+
+    </div>
+
+
+    <p>
+      הקורס יכלול:
+      <strong>10 מפגשים</strong>
+    </p>
+
+    <p>
+      במהלך הקורס,
+      <strong>תדרשו להשקיע כ-5 שעות שבועיות</strong>
+      (המפגשים + משימות ותרגול בית).
+    </p>
+
+
+    <h2 class="section-title">
+      תאריכי המפגשים
+    </h2>
+
+    <div class="course-dates-wrapper">
+
+      <ol class="course-dates">
+
+        <li>14/10/26 – יום ד'</li>
+        <li>21/10/26 – יום ד'</li>
+        <li>28/10/26 – יום ד'</li>
+        <li>4/11/26 – יום ד'</li>
+        <li>9/11/26 – יום ב'</li>
+        <li>16/11/26 – יום ב'</li>
+        <li>18/11/26 – יום ד'</li>
+        <li>23/11/26 – יום ב'</li>
+
+        <li>
+          25/11/26 – יום ד' –
+          <strong>מפגש סיום הקורס</strong>
+        </li>
+
+        <li>
+          30/11/26 – יום ב' – מפגש הכנה ליציאה לשטח.
+          <strong>
+            מפגש ייעודי למתנדבי מרחב נתיב עם אלעד אפרתי מנהל המרחב.
+          </strong>
+        </li>
+
+      </ol>
+
+    </div>
+
+
+    <section class="requirements-section">
+
+      <h2 class="requirements-title">
+        דרישות והתחייבויות להתנדבות
+      </h2>
+
+      <div class="requirements-box">
+
+        <div class="requirement-item">
+          <span class="checkmark">✓</span>
+          <span>
+            התחייבות להתנדבות של כ-5 שעות שבועיות במהלך החודשים הראשונים,
+            ולאחר מכן כ-3 שעות שבועיות
+          </span>
+        </div>
+
+        <div class="requirement-item">
+          <span class="checkmark">✓</span>
+          <span>
+            התחייבות להשתתף
+            <strong>בכל</strong>
+            מפגשי הקורס
+          </span>
+        </div>
+
+        <div class="requirement-item">
+          <span class="checkmark">✓</span>
+          <span>
+            התחייבות להתנדבות במשך
+            <strong>3 שנים לפחות</strong>
+          </span>
+        </div>
+
+        <div class="requirement-item">
+          <span class="checkmark">✓</span>
+          <span>
+            <strong>שליטה בטכנולוגיה:</strong>
+            אקסל ברמה גבוהה, שליטה טובה בזום, נוחות עבודה בסביבה וירטואלית
+          </span>
+        </div>
+
+        <div class="requirement-item">
+          <span class="checkmark">✓</span>
+          <span>
+            יכולת להוביל תהליך מורכב של שינוי הרגלים ותפיסות
+          </span>
+        </div>
+
+        <div class="requirement-item">
+          <span class="checkmark">✓</span>
+          <span>
+            הבנה ושליטה בניהול תקציב הבית
+          </span>
+        </div>
+
+        <div class="requirement-item">
+          <span class="checkmark">✓</span>
+          <span>
+            השתתפות ב-3 פגישות צוות ו-2 השתלמויות בשנה
+          </span>
+        </div>
+
+        <div class="requirement-item">
+          <span class="checkmark">✓</span>
+          <span>
+            ליווי של שתי משפחות או יחידים במקביל לאורך תקופת ההתנדבות
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="candidate-section">
+
+      <div class="candidate-box">
+
+        <h2 class="candidate-title">
+          שימו לב
+        </h2>
+
+        <p class="candidate-important">
+          הפנייה מיועדת למועמדים בעלי
+          <strong>
+            מינימום של 15 שנות ניסיון בשוק העבודה.
+          </strong>
+        </p>
+
+        <p>
+          אם הינך בעל/ת מינימום 15 שנות נסיון, וברצונך להתנדב כמלווה משפחות בפעמונים, נבקשך להרשם בתוכנת פעמונים כדי שנוכל להמשיך בתהליך המיון.
+        </p>
+<p style="text-decoration: underline; text-underline-offset: 4px; font-weight: normal;">
+  חובה להעלות למערכת פעמונים את קובץ הקו"ח
+</p>
+        <div class="candidate-action">
+
+          <a
+            class="candidate-button"
+            href="https://app.paamonim.org.il/contacts/paamonim_member"
+            target="_blank"
+            rel="noopener"
+          >
+            להרשמה במערכת פעמונים
+          </a>
+
+        </div>
+
+                <p>
+          אנו מודים על רצונך להתנדב ועוברים בקפידה על כל פנייה שנעשית במערכת,
+          ופונים למועמדים המתאימים ביותר.
+        </p>
+
+        <p>
+          במידה שנמצאת מתאים/ה להמשך התהליך,
+          תישלח אליך הודעה הכוללת הסברים כיצד יש להתכונן ולקבוע ראיון אישי.
+          הראיונות יתקיימו בשבועות הקרובים.
+        </p>
+
+        <p class="candidate-closing">
+          תודה על נכונותך להתנדב בפעמונים
+          ולהצטרף אלינו לשינוי פני החברה הישראלית.
+
+          <br>
+
+          <strong>
+            ובהצלחה!
+          </strong>
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="faq-section">
+
+      <h2 class="faq-title">
+        שאלות ותשובות
+      </h2>
+
+      <p class="faq-intro">
+        לחצו על השאלה כדי לפתוח את התשובה
+      </p>
+
+
+      <details class="faq-item" id="faq-attendance">
+
+        <summary class="faq-question">
+          לא אוכל להשתתף במפגש אחד או שניים בקורס. האם אוכל להצטרף בכל זאת?
+        </summary>
+
+        <div class="faq-answer">
+          <p>
+            אפשר להחסיר מפגש אחד בלבד של הקורס ולהשלימו בצפייה בהקלטה.
+            אם אינך יכול/ה להשתתף בשני מפגשים ומעלה, לצערנו לא ניתן להשתתף בקורס הנוכחי.
+            ניתן להירשם לקורס הבא שיתקיים.
+          </p>
+        </div>
+
+      </details>
+
+
+      <details class="faq-item">
+
+        <summary class="faq-question">
+          מתי נפתח הקורס הבא, אם לא אוכל להשתתף בקורס הנוכחי?
+        </summary>
+
+        <div class="faq-answer">
+          <p>
+            בדרך כלל נפתחים שני קורסים בשנה.
+            אם אינך יכול/ה להשתתף בקורס הנוכחי, ניתן להירשם במערכת ולעדכן אותנו.
+            פרטיך יישארו אצלנו, ונהיה איתך בקשר כאשר ייפתח הקורס הבא.
+          </p>
+        </div>
+
+      </details>
+
+
+      <details class="faq-item">
+
+        <summary class="faq-question">
+          אני מעדיף/ה להתנדב באופן פרונטלי ולא מרחוק. מה עלי לעשות?
+        </summary>
+
+        <div class="faq-answer">
+          <p>
+            ניתן להשאיר את פרטיך במערכת.
+            המחלקה האחראית על אזור מגוריך תוכל לפנות אליך בהמשך,
+            כאשר ייפתח קורס פרונטלי באזור מגוריך.
+          </p>
+        </div>
+
+      </details>
+
+
+      <details class="faq-item">
+
+        <summary class="faq-question">
+          אני מעוניין/ת להתנדב ולהשתתף, אך בחלק ממפגשי הקורס אהיה בחו"ל. האם זה אפשרי?
+        </summary>
+
+        <div class="faq-answer">
+          <p>
+            ניתן להתחבר למפגשי הקורס בזום גם מחו"ל.
+            כל עוד יש לך פניות להשתתף במפגש באופן מלא, הדבר אינו מהווה בעיה.
+            בנוסף, יש לוודא שתהיה לך פניות בין המפגשים להכנת מטלות הבית.
+          </p>
+        </div>
+
+      </details>
+
+
+      <details class="faq-item">
+
+        <summary class="faq-question">
+          אני מעוניין/ת להתנדב, אך ראיתי שהדרישה היא כ-5 שעות שבועיות. האם אפשר להתנדב פחות?
+        </summary>
+
+        <div class="faq-answer">
+          <p>
+            ההתנדבות כמלווה בפעמונים דורשת השקעה ופניות. 5 שעות הוא היקף ההשקעה במשך הקורס, לאחריו הההתנדבות היא במשך כ 3 שעות שבועיות. אם אינך פנוי/ה להתנדבות בהיקף זה, ניתן לבחון אפשרויות התנדבות אחרות בארגון, או להירשם בעתיד כאשר תהיה לך הפניות הנדרשת.
+          </p>
+        </div>
+
+      </details>
+
+    </section>
+
+  </div>
+
+</section>
+
+
+<script>
+  document.getElementById('attendance-link').addEventListener('click', function () {
+
+    const faq = document.getElementById('faq-attendance');
+
+    if (!faq) {
+      return;
+    }
+
+    faq.open = true;
+
+    setTimeout(function () {
+      faq.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }, 100);
+
+  });
+</script>
